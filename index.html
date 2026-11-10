@@ -1167,6 +1167,11 @@ function boot() {
   refresh(false);
 }
 boot();
+
+/* ---------- 安裝成 APP 與離線開啟 ---------- */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => { /* 不支援時照常使用 */ }); });
+}
 })();
 </script>
 </body>
